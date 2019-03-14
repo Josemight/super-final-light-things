@@ -3,22 +3,28 @@
 const byte numChars = 32;
 char receivedChars[numChars];
 char tempChars[numChars];
-char messageFromPC[numChars] = {0};
-int integerFromPC = 0;
-float floatFromPC = 0.0;
-boolean newData = false;
+bool newData = false;
+bool firstLoop = true;
 
+const byte numLeds = 10;
 const byte brightness = 100;
-Adafruit_NeoPixel leds = Adafruit_NeoPixel(3, 9);
+Adafruit_NeoPixel leds = Adafruit_NeoPixel(numLeds, 9);
 int colors[3][3] = {
     {12, 34, 234},
     {123, 45, 67},
     {89, 176, 45}};
 
-int ledGroup[3]{
+int ledGroup[numLeds]{
+    0,
+    0,
+    0,
     1,
     1,
-    0};
+    1,
+    1,
+    2,
+    2,
+    2};
 
 void setup()
 {
@@ -41,11 +47,20 @@ void loop()
     // Debug: print parsed command to serial
     // showParsedData();
     newData = false;
+
+    setLeds();
   }
 
-  byte ledCount = leds.numPixels();
+  if (firstLoop)
+  {
+    setLeds();
+    firstLoop = false;
+  }
+}
 
-  for (int i = 0; i < ledCount; i++)
+void setLeds()
+{
+  for (int i = 0; i < numLeds; i++)
   {
     leds.setPixelColor(i, leds.Color(colors[ledGroup[i]][0], colors[ledGroup[i]][1], colors[ledGroup[i]][2]));
   }
@@ -92,8 +107,8 @@ void receiveWithStartEndMarkers()
 }
 
 void parseData()
-{                    // split the data into its parts
-  char *strtokIndex; // this is used by strtok() as an index
+{
+  char *strtokIndex;
   int table;
 
   strtokIndex = strtok(tempChars, ",");
