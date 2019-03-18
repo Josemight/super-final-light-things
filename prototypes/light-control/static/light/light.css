@@ -1,0 +1,43 @@
+body {
+  background-color: #efefef;
+}
+
+.Light-bg {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+
+.Light-bulb {
+  height: 30vh;
+  width: 30vh;
+  background-color: #efefef;
+  border-radius: 50%;
+  position: relative;
+  transition: background-color 0.5s;
+}
+.Light-bulb::before {
+  position: absolute;
+  content: "";
+  height: 2vh;
+  width: 4vh;
+  top: 37vh;
+  left: 13vh;
+  background-color: #666;
+  z-index: -1;
+  border-radius: 50%;
+}
+.Light-bulb::after {
+  position: absolute;
+  content: "";
+  height: 16vh;
+  width: 14vh;
+  top: 22vh;
+  left: 8vh;
+  background-color: #999;
+  z-index: -1;
+  border-radius: 5vh;
+}

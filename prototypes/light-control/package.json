@@ -1,0 +1,24 @@
+{
+  "name": "light-control",
+  "version": "1.0.0",
+  "description": "A quick prototyping project to control screen light from controller device",
+  "author": "Victor Baquero Wihlborg",
+  "main": "/server/app.js",
+  "scripts": {
+    "start": "node ./server/app.js"
+  },
+  "dependencies": {
+    "app-root-path": "^2.1.0",
+    "express": "~4.16.4",
+    "express-ws": "^4.0.0"
+  },
+  "repository": {
+    "url": ""
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "web sockets",
+    "express"
+  ]
+}
