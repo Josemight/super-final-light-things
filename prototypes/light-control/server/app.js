@@ -28,26 +28,25 @@ function printServerIp(port) {
   console.groupEnd();
   console.log();
 
-  console.log("Connecting from another computer on the same Wi-Fi:");
-  console.group();
-  interfaces["Wi-Fi"].forEach(connection => {
-    if (connection.family === "IPv4" && !connection.internal) {
-      console.log(`http://${connection.address}:${port}`);
-    }
-  });
-  console.groupEnd();
-  console.log("");
+  if (interfaces["Wi-Fi"]) {
+    console.log("Connecting from another computer on the same Wi-Fi:");
+    console.group();
+    interfaces["Wi-Fi"].forEach(connection => {
+      if (connection.family === "IPv4" && !connection.internal) {
+        console.log(`http://${connection.address}:${port}`);
+      }
+    });
+    console.groupEnd();
+  }
 
-  console.log("Connecting from another computer on the same Ethernet:");
+  console.log("Connecting from another computer on the same network:");
   console.group();
   for (const key in interfaces) {
-    if (key.toLowerCase().includes("ethernet")) {
-      interfaces[key].forEach(connection => {
-        if (connection.family === "IPv4" && !connection.internal) {
-          console.log(`http://${connection.address}:${port}`);
-        }
-      });
-    }
+    interfaces[key].forEach(connection => {
+      if (connection.family === "IPv4" && !connection.internal) {
+        console.log(`http://${connection.address}:${port}`);
+      }
+    });
   }
   console.groupEnd();
 }
