@@ -1,4 +1,4 @@
-# CUBE!
+# Instagram Thing!
 
 Made by: Andrei-Octavian Bajeu & Victor Baquero Wihlborg
 
