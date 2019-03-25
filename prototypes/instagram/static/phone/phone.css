@@ -1,0 +1,9 @@
+body {
+  font-size: 2em;
+  text-align: center;
+}
+
+.active {
+  font-size: 1.2em;
+  font-weight: 700;
+}

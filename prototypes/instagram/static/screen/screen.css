@@ -1,0 +1,13 @@
+body {
+  background-color: #000;
+}
+.Screen {
+  height: 100vh;
+  width: 100vw;
+  transition: background-color 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10vw;
+  color: rgba(0, 0, 0, 0.5);
+}
