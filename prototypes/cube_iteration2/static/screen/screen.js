@@ -1,7 +1,6 @@
 const screen = document.querySelector(".Screen");
 //Define colors for each side
-const themes = [
-  {
+const themes = [{
     hue: 0,
     saturation: 0,
     lightness: 0
@@ -37,7 +36,13 @@ const themes = [
 onData = data => {
   if (data != 0) {
     const currentTheme = themes[data - 1];
-    document.body.style.backgroundColor = `hsl(${currentTheme.hue}deg, ${currentTheme.saturation}%, ${currentTheme.lightness}%)`; //Color based on side
+    document.body.style.backgroundColor = hsl($ {
+        currentTheme.hue
+      }
+      deg, $ {
+        currentTheme.saturation
+      } % , $ {
+        currentTheme.lightness
+      } % ); //Color based on side
   }
 };
-
