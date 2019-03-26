@@ -1,0 +1,26 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+.Info {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  color: rgba(0, 0, 0, 0.75);
+}
+.Info-param {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 2em;
+}
+.Info-value {
+  text-align: right;
+}

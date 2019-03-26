@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Control - Light Control</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="control.css" />
+  </head>
+  <body>
+    <div class="Control-container">
+      <div class="Control-light"></div>
+      <label>
+        Hue
+        <input
+          class="Slider Slider-hue"
+          name="hue"
+          type="range"
+          min="0"
+          max="360"
+          step="1"
+        />
+      </label>
+      <label>
+        Saturation
+        <input
+          class="Slider Slider-saturation"
+          name="saturation"
+          type="range"
+          min="0"
+          max="100"
+          step="1"
+        />
+      </label>
+      <label>
+        Value
+        <input
+          class="Slider Slider-lightness"
+          name="value"
+          type="range"
+          min="0"
+          max="100"
+          step="1"
+        />
+      </label>
+      <div class="Control-themes">
+        <button class="Control-themeButton">Off</button>
+        <button class="Control-themeButton">Sun</button>
+        <button class="Control-themeButton">Candle</button>
+        <button class="Control-themeButton">Party</button>
+        <button class="Control-themeButton">Night</button>
+        <button class="Control-themeButton">Photo</button>
+      </div>
+    </div>
+    <script src="/js/reconnecting-websocket.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="control.js"></script>
+  </body>
+</html>
