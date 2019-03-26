@@ -1,3 +1,6 @@
+let socket;
+let currentTable;
+
 // moduled querySelector
 function qs(selectEl) {
   return document.querySelector(selectEl);
@@ -34,9 +37,12 @@ colorSliders();
 
 // display colors
 function displayColors() {
-  const rgb = `${red.value}, ${green.value}, ${blue.value}`;
+  const rgb = `${red.value},${green.value},${blue.value}`;
   colorDisplay.style.backgroundColor = `rgb(${rgb})`;
-  //send(`<${tableNumber},${rgb}>`);
+
+  if (socket) {
+    sendData(`<${currentTable},${rgb}>`);
+  }
 }
 
 // initial color val when DOM is loaded
@@ -171,5 +177,32 @@ function colorSliders() {
 }
 
 function changeTable(tableNumber) {
-  console.log(tableNumber);
+  currentTable = tableNumber;
 }
+
+let onData = data => {
+  console.log(data);
+};
+
+const initWebsocket = () => {
+  const url = "ws://" + location.host + "/stream";
+  socket = new ReconnectingWebsocket(url);
+
+  socket.onopen = function(evt) {
+    console.log("Web socket opened: " + url);
+  };
+
+  socket.onmessage = function(evt) {
+    onData(JSON.parse(evt.data));
+  };
+};
+
+function sendData(value) {
+  try {
+    socket.send(JSON.stringify(value));
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+initWebsocket();
