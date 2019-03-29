@@ -1,0 +1,22 @@
+.Control {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.Control-color {
+  width: 70vmin;
+  height: 70vmin;
+  background-color: aquamarine;
+  border-radius: 50%;
+}
+.Control-id {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  color: rgba(0, 0, 0, 0.25);
+}
