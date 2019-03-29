@@ -1,6 +1,7 @@
 # Mix Cubes
 
 This prototype lets guests mix the color of light by placing red green or blue cubes on a mixing plate.
+It's an Arduino prototype.
 
 ## Dependencies
 
